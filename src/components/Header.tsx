@@ -1,52 +1,47 @@
+// components/Header.tsx
 "use client";
 
-import { motion } from "framer-motion";
-
-const headerVariants = {
-  hidden: { y: -100 },
-  visible: { y: 0, transition: { duration: 0.5 } },
-};
+import { useState, useEffect } from "react";
 
 const navItems = [
-  { id: "hero", label: "Inicio" },
-  { id: "about", label: "Sobre mí" },
-  { id: "projects", label: "Proyectos" },
-  { id: "contact", label: "Contacto" },
+    { id: "hero", label: "Inicio" },
+    { id: "portfolio", label: "Portfolio" },
+    { id: "contact", label: "Contacto" },
 ];
 
-const Header = () => (
-  <motion.header
-    className="bg-primary text-text py-4 px-6 flex justify-between items-center shadow-lg fixed top-0 w-full z-50"
-    initial="hidden"
-    animate="visible"
-    variants={headerVariants}
-    role="banner"
-  >
-    <h1 className="text-2xl font-bold hover:text-secondary">
-      <button
-        onClick={() => document.getElementById("hero")?.scrollIntoView({ behavior: "smooth" })}
-        className="hover:text-secondary transition-colors duration-300 cursor-pointer"
-        role="link"
-      >
-        Mi Portafolio
-      </button>
-    </h1>
-    <nav role="navigation">
-      <ul className="flex gap-6 text-base">
-        {navItems.map((item) => (
-          <li key={item.id}>
-            <button
-              onClick={() => document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth" })}
-              className="px-4 py-2 rounded-lg bg-primary hover:bg-secondary hover:text-primary transition-all duration-300 active:scale-95 focus:outline-none focus:ring-2 focus:ring-secondary focus:ring-offset-2 cursor-pointer"
-              role="link"
-            >
-              {item.label}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </motion.header>
-);
+const Header = () => {
+    const [active, setActive] = useState("hero");
+
+    // Opcional: implementar Intersection Observer para actualizar la sección activa
+
+    const handleClick = (id: string) => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+            setActive(id);
+        }
+    };
+
+    return (
+        <header className="fixed top-0 left-0 w-full z-50 bg-dark/80 backdrop-blur-sm px-6 py-4 flex justify-center">
+            <nav>
+                <ul className="flex gap-8">
+                    {navItems.map((item) => (
+                        <li key={item.id}>
+                            <button
+                                onClick={() => handleClick(item.id)}
+                                className={`text-base transition-colors duration-300 hover:text-secondary ${
+                                    active === item.id ? "text-secondary" : "text-gray-300"
+                                }`}
+                            >
+                                {item.label}
+                            </button>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </header>
+    );
+};
 
 export default Header;
