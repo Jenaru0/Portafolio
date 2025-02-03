@@ -2,6 +2,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const Portfolio = () => {
     return (
@@ -36,11 +37,14 @@ const Portfolio = () => {
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ duration: 0.4, ease: "easeOut" }}
                         >
-                            <img
+                            <Image
                                 src={`/images/project-${project}.jpg`}
                                 alt={`Proyecto ${project}`}
+                                width={400} // Ajusta según el tamaño deseado
+                                height={300} // Ajusta según el tamaño deseado
                                 className="w-full h-48 object-cover"
                             />
+
                             <div className="p-4">
                                 <h3 className="text-xl font-semibold text-white mb-2">
                                     Proyecto {project}

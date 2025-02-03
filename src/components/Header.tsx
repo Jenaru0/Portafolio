@@ -1,7 +1,7 @@
 // components/Header.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const navItems = [
     { id: "hero", label: "Inicio" },
