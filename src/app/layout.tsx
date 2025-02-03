@@ -2,8 +2,6 @@
 import type { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Poppins } from "next/font/google";
-
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
@@ -29,11 +27,6 @@ export const metadata: Metadata = {
     },
     metadataBase: new URL("https://tudominio.dev"), // Actualiza aquí también
 };
-
-const poppins = Poppins({
-    subsets: ["latin"],
-    weight: ["400", "500", "700"],
-});
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
