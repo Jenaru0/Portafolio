@@ -10,9 +10,24 @@ export default {
   ],
   theme: {
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1rem",
+          sm: "2rem",
+          lg: "4rem",
+          xl: "5rem",
+          "2xl": "6rem",
+        },
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        primary: '#0D1117', // Azul grisáceo oscuro para fondo
+        secondary: '#1F6FEB', // Azul vibrante profesional
+        accent: '#8B949E', // Gris neutro
+        text: '#C9D1D9', // Blanco suave para texto
+        muted: '#6E7681', // Gris claro para texto secundario
+        background: "var(--background)", // Fondo adaptable a dark mode
+        foreground: "var(--foreground)", // Texto adaptable a dark mode
       },
     },
   },
