@@ -5,14 +5,12 @@ import { useState } from "react";
 
 const navItems = [
     { id: "hero", label: "Inicio" },
-    { id: "portfolio", label: "Portfolio" },
+    { id: "portfolio", label: "Portafolio" },
     { id: "contact", label: "Contacto" },
 ];
 
 const Header = () => {
     const [active, setActive] = useState("hero");
-
-    // Opcional: implementar Intersection Observer para actualizar la sección activa
 
     const handleClick = (id: string) => {
         const el = document.getElementById(id);

@@ -33,9 +33,6 @@ const Hero = () => {
         <section
             id="hero"
             className="relative h-screen flex flex-col items-center justify-center text-center px-4"
-            style={{
-                background: "url('/images/professional-bg.jpg') no-repeat center center/cover",
-            }}
         >
             <div className="max-w-6xl w-full mx-auto relative z-20 space-y-8">
                 {/* Avatar o Imagen de Perfil */}
